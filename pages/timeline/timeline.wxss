@@ -20,6 +20,7 @@
   height: 160rpx;
   margin-right: 20rpx;
   background: white;
+  
 }
 
 .user-avatar {
