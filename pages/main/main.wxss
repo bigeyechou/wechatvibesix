@@ -1,0 +1,338 @@
+/* pages/main/main.wxss */
+
+/* 首页 */
+.main{
+ background:  #F7F7F7;
+}
+.search {
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.search_icon {
+  margin-left: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.search_input {
+  margin-right: 20rpx;
+  margin-top: 3rpx;
+  font-size: 30rpx;
+  padding-left: 10rpx;
+  width: 550rpx;
+  height: 40rpx;
+  border: solid 1px #E6E6E6;
+  border-radius: 0 20px 20px 0;
+  line-height: 60rpx;
+}
+
+.search_text {
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  color: rgb(255, 39, 98);
+  line-height: 60rpx;
+  font-weight: bold;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+   background:  white;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: #777;
+}
+
+.on {
+  color: #000;
+  font-size: 50rpx;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*  加载更多   */
+
+.loading {
+  margin: 0 5px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+  animation: weuiLoading 1s steps(12, end) infinite;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+  background-size: 100%;
+}
+
+.loadmore {
+  width: 65%;
+  margin: 1.5em auto;
+  line-height: 1.6em;
+  font-size: 14px;
+  text-align: center;
+}
+
+.loadmore__tips {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 首页课程start */
+
+/* 轮播 */
+
+.swiper {
+  width: 100%;
+  height: 260rpx;
+}
+
+.swiper image {
+  width: 100%;
+  height: 260rpx;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.top-text {
+  float: left;
+}
+
+.top-text view {
+  line-height: 55rpx;
+  text-align: center;
+  display: block;
+  font-size: 28rpx;
+}
+
+.top-text {
+  width: 12.5%;
+  font-size: 9pt;
+  align-items: center;
+}
+
+.date-view {
+  display: flex;
+  justify-content: space-around;
+   background:  white;
+}
+
+.week-view {
+  display: inline-block;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.week {
+  text-align: center;
+}
+
+.day {
+  text-align: center;
+  padding: 6rpx;
+}
+
+.date-click .week {
+  color: red;
+}
+
+.date-click .day {
+  background: red;
+  color: #fff;
+  display: inline-block;
+}
+
+.shop-view {
+  width: 100%;
+  height: 50rpx;
+}
+
+.shop-title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  float: left;
+  color: black;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.shop-distance {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  float: right;
+  color: gray;
+  font-size: 20rpx;
+}
+
+.course-view {
+  height: 240rpx;
+  border: solid 1px #96969660;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: block;
+   background:  white;
+}
+
+.course-time {
+  font-size: 30rpx;
+}
+
+.course-div-line {
+  width: 100%;
+  height: 1rpx;
+  background: #E6E6E6;
+}
+
+.course-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50px;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.course-info {
+  display: flex;
+  flex-direction: row;
+  height: 180rpx;
+  align-items: center;
+}
+
+.course-countent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-title {
+  font-size: 30rpx;
+  width: 450rpx;
+}
+
+.course_price {
+  font-size: 30rpx;
+  width: 100rpx;
+  color: red;
+  margin-top: 20rpx;
+}
+
+.course_state {
+  width: 100rpx;
+  height: 180rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+/* 首页课程end */
+
+/* 首页教师start */
+
+.swiper-teacher {
+  width: 100%;
+  height: 100%;
+}
+
+.teacher-view {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.teacher-image {
+  width: 100%;
+  height: 100%;
+}
+
+.video-image {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.findme-image {
+  width: 150rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 70%;
+  right: 0%;
+}
+
+.teacher-info {
+  position: absolute;
+  width: 100%;
+  bottom: 0%;
+  top: 60%;
+  padding-left: 5%;
+  padding-top: 15%;
+}
+
+.teacher-info text {
+  display: block;
+  color: white;
+  padding-top: 5rpx;
+}
+
+/* 首页教师end */
+
+/* 首页活动start */
+
+.activity-view {
+  width: 100%;
+  height: 100%;
+  background: gainsboro;
+  padding-top: 10rpx;
+}
+
+.activity-item {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  background: white;
+  border-radius: 5px;
+}
+
+.activity-cover {
+  width: 100%;
+  height: 320rpx;
+  vertical-align: bottom;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.activity-title {
+  left: 0%;
+  float: left;
+  width: 70%;
+  padding: 15rpx;
+}
+
+.activity-people-num {
+  right: 0%;
+  float: right;
+  color: gray;
+  font-size: 30rpx;
+  padding: 15rpx;
+}
+
+/* 首页活动end */

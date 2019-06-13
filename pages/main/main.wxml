@@ -1,0 +1,109 @@
+<!--pages/main/main.wxml-->
+<wxs src="../../utils/timeformat.wxs" module="tools" />
+<view class="main">
+  <view class="search">
+    <image class="search_icon" src="/image/ic_vibe.png"></image>
+    <input class="search_input" maxlength="11" placeholder="输入要搜索的内容" />
+    <text class="search_text" catchtap="onSearch">搜索</text>
+  </view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">课程</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">老师</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">活动</view>
+  </view>
+  <view class="loadmore" hidden="{{isHideLoadMore}}">
+    <view class="loading"></view>
+    <view class="loadmore__tips">正在加载</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+    <!-- 首页课程 -->
+    <swiper-item>
+      <!-- banner组件 -->
+      <swiper indicator-dots="{{true}}" indicator-active-color="#20EAEC" autoplay="{{true}}" interval="5000" circular="{{true}}">
+        <block wx:for="{{bannerList}}">
+          <swiper-item>
+            <view>
+              <image class="slide-image" src="{{ item.cover }}" bindload='imgHeight' mode='widthFix'></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 日历组件 -->
+      <view class="date-view">
+        <block wx:for="{{allWeek}}" wx:for-item="item">
+          <view class="week-view {{weekState == index?'date-click':''}}" data-day="{{item.dates}}" data-key='{{index}}' bindtap="selectDate">
+            <view class="week">{{item.weekStr}}</view>
+            <view class="day">{{item.dateStr}}</view>
+          </view>
+        </block>
+      </view>
+      <!-- 门店课程列表 -->
+      <view>
+        <scroll-view class="scroll" style="height:{{courseListHeight}}px;" scroll-y="true">
+          <block class="shop-block" wx:for="{{shopList}}" wx:for-item="item">
+          <view wx:if="{{item}}">  
+            <view class="shop-view">
+              <text class="shop-title"> {{item.name}} </text>
+              <text class="shop-distance"> {{item.distance}}> </text>
+            </view>
+            <block wx:for="{{item.course_list}}" wx:for-item="item">
+              <view class="course-view">
+                <text class="course-time"> {{tools.formatTime(item.start_time).time}}~{{tools.formatTime(item.end_time).time}}</text>
+                <view class="course-div-line"></view>
+                <view class="course-info">
+                  <image class="course-avatar" src="{{ item.teacher_icon }}"></image>
+                  <view class="course-countent">
+                    <text class="course-title">{{item.teacher_name}} - {{item.name}}</text>
+                    <text class="course_price">￥{{item.price}}</text>
+                  </view>
+                  <text class="course_state">预约</text>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view wx:else>
+                <text>暂无课程</text>
+          </view>
+          </block>
+        </scroll-view>
+      </view>
+
+    </swiper-item>
+
+    <!-- 首页老师 -->
+    <swiper-item>
+      <swiper class="swiper-teacher" indicator-dots="{{false}}" autoplay="{{false}}" circular="{{true}}" vertical="{{true}}">
+        <block wx:for="{{teacherList}}">
+          <swiper-item>
+            <view class="teacher-view">
+              <image class="teacher-image" src="{{ item.cover }}" mode="aspectFill" lazy-load="{{true}}"></image>
+              <image class="video-image" src='/image/ic_video_play_round.png' bindtap="onClickVideo" data-videopath="{{item.video_href}}"></image>
+              <image class="findme-image" src='/image/ic_findme.png'></image>
+              <view class='teacher-info' style="background: url('../../image/bg_gray_mask.png') no-repeat; background-size:100% 100%">
+                <text>{{item.username}}</text>
+                <text>舞种：{{item.dance_name}}</text>
+                <text>舞龄：{{item.dance_age}}</text>
+                <text>签名：{{item.signature}}</text>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </swiper-item>
+
+    <!-- 首页活动 -->
+    <swiper-item>
+      <view class="activity-view">
+        <block wx:for="{{activityList}}" wx:for-item="item">
+          <view class="activity-item">
+            <view>
+              <text class="activity-title">{{item.title}}</text>
+              <text class="activity-people-num">{{item.num}}人参与</text>
+            </view>
+            <image class="activity-cover" src="{{item.cover}}" mode="aspectFill"></image>
+          </view>
+        </block>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

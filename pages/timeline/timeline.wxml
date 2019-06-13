@@ -1,0 +1,43 @@
+<!--pages/timeline/timeline.wxml-->
+<wxs src="../../utils/timeformat.wxs" module="tools" />
+<view class="tilmeline">
+  <view class="timeline-head">
+    <scroll-view class="scroll-head" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <block wx:for="{{userList}}" wx:for-item="item">
+        <view class="user-view">
+          <image class="user-avatar" src='{{item.icon}}'></image>
+          <text class="user-name">{{item.username}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="timeline-list">
+    <scroll-view class="scroll-timeline" scroll-y="true" style="height:{{listHeight}}px">
+      <block wx:for="{{timelineList.list}}" wx:for-item="item">
+        <view class="timeline-item">
+          <view class="timeline-view">
+            <image class="timeline-avatar" src='{{item.item.user.icon}}'></image>
+            <view class="timeline-name">
+              <text>{{item.item.user.username}}</text>
+              <text>{{tools.formatTime(item.item.created_time).date}}</text>
+            </view>
+          </view>
+          <view class="timeline-content">{{item.item.content}}</view>
+          <block wx:if="{{item.type==1}}">
+            <image></image>
+          </block>
+          <block wx:else>
+            <view class="video-view  {{item.type==2? 'video_land' : 'video_vertical'}}">
+              <image class="timeline-video" src="{{item.item.video.video_cover}}" data-id='{{item.item.video.video_id}}' data-src='{{item.item.video.video_href}}' bindtap='startPlay' wx:if="{{item.item.video.video_id != videoId}}">
+              </image>
+              <image class="videoPlayBtn" bindtap='startPlay' data-id='{{item.item.video.video_id}}' data-src='{{item.item.video.video_href}}' bindtap='startPlay' wx:if="{{item.item.video.video_id != videoId}}" src="/image/ic_video_play_round.png"></image>
+              <video class="timeline-video" id="myVideo" src="{{videoSrc}}" binderror="videoErrorCallback" show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls autoplay='{{true}}' wx:if="{{item.item.video.video_id == videoId}}"></video>
+            </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+</view>
