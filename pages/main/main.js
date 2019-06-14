@@ -233,6 +233,7 @@ Page({
     wx.navigateTo({
       url: "../../pages/main/video/video?videoPath=" + that.data.teacherVideoPath,
     })
+    
   },
 
   recentCourseBtn:function(e){
