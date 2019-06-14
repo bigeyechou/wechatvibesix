@@ -1,0 +1,5 @@
+<!--pages/main/video/video.wxml-->
+<view class="container">
+  <video id="myVideo" src="{{videoPath}}"
+    binderror="videoErrorCallback" show-center-play-btn='{{false}}' show-play-btn="{{true}}" controls></video>
+</view>
