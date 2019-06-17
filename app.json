@@ -3,7 +3,6 @@
   
     "pages/main/main",
     "pages/timeline/timeline",
-    "pages/message/message",
     "pages/my/my",
     "pages/main/video/video"
   ],
@@ -29,12 +28,6 @@
         "text": "动态",
         "iconPath": "image/ic_timeline_unlight.png",
         "selectedIconPath": "image/ic_timeline_light.png"
-      },
-      {
-        "pagePath": "pages/message/message",
-        "text": "消息",
-        "iconPath": "image/ic_message_unlight.png",
-        "selectedIconPath": "image/ic_message_light.png"
       },
       {
         "pagePath": "pages/my/my",

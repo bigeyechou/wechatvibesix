@@ -79,6 +79,7 @@ Page({
         pageNum : 0,
         timelineList:[],
       })
+    that.getUserData()
     that.getUserToken()
   },
 

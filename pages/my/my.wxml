@@ -1,2 +1,24 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="container">
+  <template is="head" data="{{title: 'getUserInfo'}}"/>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <block wx:if="{{hasUserInfo === false}}">
+          <text class="page-body-text">未获取</text>
+          <text class="page-body-text">点击登录按钮获取用户头像及昵称</text>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+      <view class="btn-area">
+        <button class="btn-getuserinfo" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+        <button bindtap="clear">退出</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" />
+</view>

@@ -13,7 +13,6 @@
   </view>
 
   <view class="timeline-list">
-    <!-- <scroll-view class="scroll-timeline" scroll-y="true" style="height:{{listHeight}}px"> -->
       <block wx:for="{{timelineList}}" wx:for-item="item">
         <view class="timeline-item">
           <view class="timeline-view">
@@ -37,7 +36,6 @@
           </block>
         </view>
       </block>
-    <!-- </scroll-view> -->
   </view>
 
 </view>

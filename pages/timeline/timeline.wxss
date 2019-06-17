@@ -31,7 +31,7 @@
 
 .user-name {
   font-size: 20rpx;
-  color: gray;
+  color: white;
   position: absolute;
   left: 0;
   right: 0;
