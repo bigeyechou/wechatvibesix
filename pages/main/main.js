@@ -127,11 +127,12 @@ Page({
     }
   },
 
-  /** 请求banner数据 */
+  /** 请求banner数据 v2-5-7/home/banner */
   getBannerData: function() {
     var params = ""
     var that = this
     app.getApiData(params, "v2-5-7/home/banner", function success(result) {
+      console.log(result)
       that.setData({
         bannerList: result.data.obj
       })

@@ -11,9 +11,11 @@ Page({
     //关注头像
     userList: {},
     //关注的动态
-    timelineList: {},
+    timelineList: [],
     videoId: 0,
     videoSrc: '',
+    pageNum:0,
+    isMore:0,
   },
 
   /**
@@ -72,14 +74,25 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+      var that = this;
+      that.setData({
+        pageNum : 0,
+        timelineList:[],
+      })
+    that.getUserToken()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+      var that = this;
+      if(that.data.isMore==1){
+        that.setData({
+          pageNum: that.data.pageNum+1,
+        })
+        that.getTimelineData();
+      }
   },
 
   getUserData: function() {
@@ -98,12 +111,14 @@ Page({
     var that = this
     var params = {
       user_id: 587,
-      page: 0,
+      page: that.data.pageNum,
       access_token: that.data.userToken,
     }
     app.getApiData(params, "v5/user/friend-dynamics", function success(result) {
+      var content = that.data.timelineList.concat(result.data.obj.list)
       that.setData({
-        timelineList: result.data.obj
+        timelineList: content,
+        isMore : result.data.obj.has_more
       })
     })
   },
@@ -118,6 +133,7 @@ Page({
         userToken: result.data.obj
       }, function() {
         that.getTimelineData()
+        wx.stopPullDownRefresh;
       })
     })
   },

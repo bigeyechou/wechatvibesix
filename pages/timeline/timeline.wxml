@@ -13,8 +13,8 @@
   </view>
 
   <view class="timeline-list">
-    <scroll-view class="scroll-timeline" scroll-y="true" style="height:{{listHeight}}px">
-      <block wx:for="{{timelineList.list}}" wx:for-item="item">
+    <!-- <scroll-view class="scroll-timeline" scroll-y="true" style="height:{{listHeight}}px"> -->
+      <block wx:for="{{timelineList}}" wx:for-item="item">
         <view class="timeline-item">
           <view class="timeline-view">
             <image class="timeline-avatar" src='{{item.item.user.icon}}'></image>
@@ -37,7 +37,7 @@
           </block>
         </view>
       </block>
-    </scroll-view>
+    <!-- </scroll-view> -->
   </view>
 
 </view>

@@ -9,7 +9,8 @@ App({
       var BASE_URL = 'http://testapi.wujike.com.cn/';
       // 正式
       // var BASE_URL = 'https://api.wujike.com.cn/';
-  
+      //本地
+    // var BASE_URL = 'http://api.wujike.com.cn/';
     wx.request({
       url: BASE_URL + url,
       data: data,
