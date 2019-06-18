@@ -24,7 +24,11 @@
           </view>
           <view class="timeline-content">{{item.item.content}}</view>
           <block wx:if="{{item.type==1}}">
-            <image></image>
+            <view  class="timeline-images">
+            <block wx:for="{{item.item.images}}" wx:for-item="item" wx:if="{{item.item.images != ''}}" >
+            <image class="timeline-image" src="{{item}}"></image>     
+            </block>
+            </view>
           </block>
           <block wx:else>
             <view class="video-view  {{item.type==2? 'video_land' : 'video_vertical'}}">

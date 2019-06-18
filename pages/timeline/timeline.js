@@ -14,7 +14,7 @@ Page({
     timelineList: [],
     videoId: 0,
     videoSrc: '',
-    pageNum:0,
+    pageNum:8,
     isMore:0,
   },
 
